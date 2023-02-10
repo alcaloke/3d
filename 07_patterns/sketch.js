@@ -22,7 +22,7 @@ function draw() {
   c = 18
   w = (s * (n - 1)) / 2
   r += 1
-  let depth = map(mouseY, height, 0, 0, 20)
+  let depth = map(mouseY, height, 0, -30, 10)
 
   // C. Colors
   push()
@@ -87,7 +87,7 @@ function draw() {
       rotateX(radians(ra * 1.5))
       noStroke()
       specularMaterial(255)
-      shininess(5)
+      shininess(100)
       circle(0, 0, c)
       pop()
 
