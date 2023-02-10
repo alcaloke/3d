@@ -87,7 +87,7 @@ function draw() {
       rotateX(radians(ra * 1.5))
       noStroke()
       specularMaterial(255)
-      shininess(100)
+      shininess(20)
       circle(0, 0, c)
       pop()
 
