@@ -12,7 +12,7 @@ function setup() {
 }
 
 let r = 0
-let p1ch = 550
+let p1ch = 180
 let dp1c = 1
 
 function draw() {
@@ -26,30 +26,29 @@ function draw() {
 
   // C. Colors
   push()
-  colorMode(HSB, 1000)
-  let p2c = color(p1ch, 1000, 1000)
+  colorMode(HSB, 360)
+  let p2c = color(p1ch, 360, 360)
   p1ch += dp1c
-  if (p1ch > 700 || p1ch < 550) {
+  if (p1ch > 225 || p1ch < 170) {
     dp1c *= -1
   }
   pop()
 
   // LIGHTS
-  // pointLight 1
+  // pointLight 1 - white @ center
   pointLight(255, 255, 255, 0, 0, depth)
 
-  // pointLight 2
+  // pointLight 2 - green blue purple orbiting
   let p2x = (w / 2) * sin(radians(r))
   let p2y = (w / 2) * cos(radians(r))
   pointLight(p2c, p2x, p2y, depth)
   push()
-  rotateZ(radians(-r))
-  translate(0, w / 2, 0)
+  translate(p2x, p2y, 0)
   noStroke()
   sphere(25)
   pop()
 
-  // pointLight 3
+  // pointLight 3 - pink at top right
   // let locX = mouseX - width / 2
   // let locY = mouseY - height / 2
   let locX = w / 2
@@ -87,7 +86,7 @@ function draw() {
       rotateX(radians(ra * 1.5))
       noStroke()
       specularMaterial(255)
-      shininess(20)
+      shininess(255)
       circle(0, 0, c)
       pop()
 
